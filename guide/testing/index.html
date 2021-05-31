@@ -16,7 +16,7 @@
         <link rel="canonical" href="https://cashapp.github.io/tempest/guide/testing/">
       
       <link rel="icon" href="../../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.6">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.2">
     
     
       
@@ -24,10 +24,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.875de78c.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6f955dcd.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.f1a3b89f.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
         
           
           
@@ -379,34 +379,6 @@
         <li class="md-nav__item">
   <a href="#other-testing-frameworks" class="md-nav__link">
     Other Testing Frameworks
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#import-orgjunitjupiterapiextensionaftereachcallback-import-orgjunitjupiterapiextensionbeforeeachcallback-import-orgjunitjupiterapiextensionextensioncontext-class-junit5testdynamodb-private-val-testtables-listtesttable-beforeeachcallback-aftereachcallback-private-val-service-testdynamodbservicecreatejvmdynamodbserverfactory-testtables-8000-override-fun-beforeeachcontext-extensioncontext-servicestartasync-serviceawaitrunning-override-fun-aftereachcontext-extensioncontext-servicestopasync-serviceawaitterminated" class="md-nav__link">
-    import org.junit.jupiter.api.extension.AfterEachCallback
-import org.junit.jupiter.api.extension.BeforeEachCallback
-import org.junit.jupiter.api.extension.ExtensionContext
-// ...
-
-class JUnit5TestDynamoDb(
-  private val testTables: List&lt;TestTable&gt;,
-) : BeforeEachCallback, AfterEachCallback {
-
-  private val service = TestDynamoDbService.create(JvmDynamoDbServer.Factory, testTables, 8000)
-
-  override fun beforeEach(context: ExtensionContext) {
-    service.startAsync()
-    service.awaitRunning()
-  }
-
-  override fun afterEach(context: ExtensionContext?) {
-    service.stopAsync()
-    service.awaitTerminated()
-  }
-}
-
   </a>
   
 </li>
@@ -784,34 +756,6 @@ class JUnit5TestDynamoDb(
         <li class="md-nav__item">
   <a href="#other-testing-frameworks" class="md-nav__link">
     Other Testing Frameworks
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#import-orgjunitjupiterapiextensionaftereachcallback-import-orgjunitjupiterapiextensionbeforeeachcallback-import-orgjunitjupiterapiextensionextensioncontext-class-junit5testdynamodb-private-val-testtables-listtesttable-beforeeachcallback-aftereachcallback-private-val-service-testdynamodbservicecreatejvmdynamodbserverfactory-testtables-8000-override-fun-beforeeachcontext-extensioncontext-servicestartasync-serviceawaitrunning-override-fun-aftereachcontext-extensioncontext-servicestopasync-serviceawaitterminated" class="md-nav__link">
-    import org.junit.jupiter.api.extension.AfterEachCallback
-import org.junit.jupiter.api.extension.BeforeEachCallback
-import org.junit.jupiter.api.extension.ExtensionContext
-// ...
-
-class JUnit5TestDynamoDb(
-  private val testTables: List&lt;TestTable&gt;,
-) : BeforeEachCallback, AfterEachCallback {
-
-  private val service = TestDynamoDbService.create(JvmDynamoDbServer.Factory, testTables, 8000)
-
-  override fun beforeEach(context: ExtensionContext) {
-    service.startAsync()
-    service.awaitRunning()
-  }
-
-  override fun afterEach(context: ExtensionContext?) {
-    service.stopAsync()
-    service.awaitTerminated()
-  }
-}
-
   </a>
   
 </li>
@@ -1252,7 +1196,7 @@ also manages test tables for you, recreating them before each test.</p>
 </code></pre></div>
 <h2 id="other-testing-frameworks">Other Testing Frameworks<a class="headerlink" href="#other-testing-frameworks" title="Permanent link">&para;</a></h2>
 <p>Tempest testing is compatible with other testing frameworks. You&rsquo;ll need to write your own integration code. Feel free to reference the implementations above. Here is a simpler example:</p>
-<h2 id="import-orgjunitjupiterapiextensionaftereachcallback-import-orgjunitjupiterapiextensionbeforeeachcallback-import-orgjunitjupiterapiextensionextensioncontext-class-junit5testdynamodb-private-val-testtables-listtesttable-beforeeachcallback-aftereachcallback-private-val-service-testdynamodbservicecreatejvmdynamodbserverfactory-testtables-8000-override-fun-beforeeachcontext-extensioncontext-servicestartasync-serviceawaitrunning-override-fun-aftereachcontext-extensioncontext-servicestopasync-serviceawaitterminated"><div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="nn">org.junit.jupiter.api.extension.AfterEachCallback</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="nn">org.junit.jupiter.api.extension.AfterEachCallback</span>
 <span class="k">import</span> <span class="nn">org.junit.jupiter.api.extension.BeforeEachCallback</span>
 <span class="k">import</span> <span class="nn">org.junit.jupiter.api.extension.ExtensionContext</span>
 <span class="c1">// ...</span>
@@ -1273,7 +1217,8 @@ also manages test tables for you, recreating them before each test.</p>
     <span class="n">service</span><span class="p">.</span><span class="na">awaitTerminated</span><span class="p">()</span>
   <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div><a class="headerlink" href="#import-orgjunitjupiterapiextensionaftereachcallback-import-orgjunitjupiterapiextensionbeforeeachcallback-import-orgjunitjupiterapiextensionextensioncontext-class-junit5testdynamodb-private-val-testtables-listtesttable-beforeeachcallback-aftereachcallback-private-val-service-testdynamodbservicecreatejvmdynamodbserverfactory-testtables-8000-override-fun-beforeeachcontext-extensioncontext-servicestartasync-serviceawaitrunning-override-fun-aftereachcontext-extensioncontext-servicestopasync-serviceawaitterminated" title="Permanent link">&para;</a></h2>
+</code></pre></div>
+<hr />
 <p>Check out the code samples on Github:</p>
 <ul>
 <li>Music Library - SDK 1.x (<a href="https://github.com/cashapp/tempest/tree/master/samples/musiclibrary/src/main/kotlin/app/cash/tempest/musiclibrary">.kt</a>, <a href="https://github.com/cashapp/tempest/tree/master/samples/musiclibrary/src/main/java/app/cash/tempest/musiclibrary/java">.java</a>)</li>
@@ -1359,10 +1304,10 @@ also manages test tables for you, recreating them before each test.</p>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.34eae1b6.min.js"></script>
+      <script src="../../assets/javascripts/bundle.4ea5477f.min.js"></script>
       
         <script src="../../script/mermaid.min.js"></script>
       
