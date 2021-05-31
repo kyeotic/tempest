@@ -1,0 +1,5 @@
+$dokka.format:gfm
+$dokka.linkExtension:md
+
+app.cash.tempest2.musiclibrary
+app.cash.tempest2.musiclibrary.java
