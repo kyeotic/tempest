@@ -134,7 +134,9 @@ internal class ReflectionCodec<A : Any, D : Any> private constructor(
     fun removePrefix(dbItem: DB): DB {
       val attributeValues = mapAttributeValue.toAttributeValues(dbItem).toMutableMap()
       for ((attributeName, prefix) in attributePrefixes) {
-        val attributeValue = requireNotNull(attributeValues[attributeName])
+        val attributeValue = requireNotNull(attributeValues[attributeName]) {
+          "Expect ${rawItemType.type}.$attributeName to not be null"
+        }
         requireNotNull(attributeValue.s) {
           "Expect ${rawItemType.type}.$attributeName to be mapped to a string"
         }
